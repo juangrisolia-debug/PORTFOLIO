@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juanma Grisolia — FUTPANAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#F5F6F8; --paper:#05070C; --gold:#F2C230; --teal:#0B1F3A; --line:rgba(245,246,248,.14);
+    --card:#0C1C34;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', system-ui, sans-serif; line-height:1.5;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; font-weight:600; letter-spacing:-.01em;}
+  a{color:inherit;}
+  img{max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  header{padding:20px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line);}
+  .logo-box{width:52px; height:52px; border:1px dashed var(--line); display:flex; align-items:center; justify-content:center; font-size:.68rem; text-align:center; opacity:.6; line-height:1.2; padding:4px;}
+  .brand-mark{width:44px; height:44px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;}
+  .brand-mark img{width:100%; height:100%; object-fit:cover; display:block;}
+  .brand-mark .fallback{font-size:.6rem; opacity:.55; text-align:center; line-height:1.2; padding:2px;}
+  .links-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:10px;}
+  .links-row a{font-size:.8rem; opacity:.7; text-decoration:none; border-bottom:1px solid transparent;}
+  .links-row a:hover{opacity:1; color:var(--gold); border-color:var(--gold);}
+  nav a{margin-left:20px; text-decoration:none; font-size:.92rem; opacity:.75; transition:color .2s, opacity .2s;}
+  nav a:hover{opacity:1; color:var(--gold);}
+
+  .hero{padding:64px 24px 48px; display:grid; grid-template-columns:1.3fr .9fr; gap:40px; align-items:end;}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem); line-height:1.05; font-style:italic; font-weight:500;}
+  .hero p{max-width:46ch; margin-top:16px; font-size:1.05rem; opacity:.85;}
+  .live{border:1px solid var(--line); padding:18px 20px; font-size:.85rem;}
+  .live .dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--gold); margin-right:8px; animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .live .label{opacity:.6; display:block; margin-bottom:6px;}
+
+  section{padding:48px 24px; border-top:1px solid var(--line);}
+  .section-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:28px;}
+  .section-head h2{font-size:1.5rem; font-style:italic; font-weight:500;}
+  .section-head .n{font-size:.85rem; opacity:.55;}
+
+  .latest{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .latest-card{background:var(--card); border:1px solid var(--line); padding:20px;}
+  .latest-card .tag{font-size:.78rem; opacity:.6; margin-bottom:8px;}
+  .latest-card .thumb{aspect-ratio:16/9; background:linear-gradient(135deg,var(--teal),#000); border:1px solid var(--line); margin-bottom:12px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:.8rem; opacity:.85;}
+  .latest-card h3{font-size:1.05rem; font-weight:600; font-family:'IBM Plex Sans';}
+  .latest-card p{font-size:.85rem; opacity:.65; margin-top:4px;}
+
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .tile{background:var(--card); border:1px solid var(--line); aspect-ratio:4/5; padding:14px; display:flex; flex-direction:column; justify-content:flex-end;}
+  .tile span{font-size:.78rem; opacity:.65;}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); border:1px solid var(--line);}
+  .stat{padding:22px 18px; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces', serif; font-size:1.9rem; font-weight:600; color:var(--gold);}
+  .stat .plat{font-size:.8rem; opacity:.6; margin-top:2px;}
+
+  .partners{display:flex; flex-wrap:wrap; gap:14px;}
+  .partner{border:1px solid var(--line); padding:10px 18px; font-size:.9rem; opacity:.8;}
+
+  .cta{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  .cta a{background:var(--gold); color:#05070C; border:1px solid var(--gold); padding:12px 22px; text-decoration:none; font-size:.9rem; font-weight:600; transition:transform .2s;}
+  .cta a:hover{transform:translateY(-2px);}
+
+  footer{padding:32px 24px; font-size:.8rem; opacity:.6; border-top:1px solid var(--line);}
+
+  @media (max-width:720px){
+    .hero{grid-template-columns:1fr;}
+    .latest{grid-template-columns:1fr;}
+    .grid3{grid-template-columns:1fr 1fr;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .stat:nth-child(2){border-right:none;}
+    .stat{border-bottom:1px solid var(--line);}
+  }
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .latest .reveal:nth-child(2){transition-delay:.1s;}
+  .grid3 .reveal:nth-child(2){transition-delay:.08s;}
+  .grid3 .reveal:nth-child(3){transition-delay:.16s;}
+  .grid3 .reveal:nth-child(4){transition-delay:.24s;}
+  .grid3 .reveal:nth-child(5){transition-delay:.32s;}
+  .grid3 .reveal:nth-child(6){transition-delay:.4s;}
+  .stats .reveal:nth-child(2){transition-delay:.08s;}
+  .stats .reveal:nth-child(3){transition-delay:.16s;}
+  .stats .reveal:nth-child(4){transition-delay:.24s;}
+  .partners .reveal:nth-child(2){transition-delay:.08s;}
+  .partners .reveal:nth-child(3){transition-delay:.16s;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none; opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box" data-field="logo">logo<br>(PNG/JPG)</div>
+  <nav>
+    <a href="#latest">Último contenido</a>
+    <a href="#work">Portfolio</a>
+    <a href="#stats">Redes</a>
+    <a href="#partners">Con quién trabajo</a>
+  </nav>
+</header>
+
+<div class="hero wrap">
+  <div class="reveal">
+    <h1 data-field="nombre">Juan Manuel Grisolia</h1>
+    <p data-field="perfil">Este texto es tu perfil de trabajador y creador — editalo desde el panel cuando quieras contar en qué estás trabajando ahora.</p>
+  </div>
+  <div class="live reveal">
+    <span class="label">Transmisión</span>
+    <span><span class="dot"></span>En vivo ahora — [link editable desde el panel]</span>
+  </div>
+</div>
+
+<section id="latest">
+  <div class="wrap">
+    <div class="section-head"><h2>Lo último</h2><span class="n">actualizado automático vía YouTube</span></div>
+    <div class="latest">
+      <div class="latest-card reveal">
+        <div class="tag">Último video · @juanngrisolia</div>
+        <div class="thumb">miniatura del video</div>
+        <h3>Título del último video (ejemplo)</h3>
+      </div>
+      <div class="latest-card reveal">
+        <div class="tag">Última transmisión · JDC</div>
+        <div class="thumb">miniatura del stream</div>
+        <h3>Último programa de JDC (ejemplo)</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head"><h2>Portfolio</h2><span class="n">multimedia</span></div>
+    <div class="grid3">
+      <div class="tile reveal"></div>
+      <div class="tile reveal"></div>
+      <div class="tile reveal"></div>
+      <div class="tile reveal"></div>
+      <div class="tile reveal"></div>
+      <div class="tile reveal"></div>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="wrap">
+    <div class="section-head"><h2>Comunidad</h2><span class="n">seguidores</span></div>
+    <div class="stats" id="stats-container"></div>
+    <div class="partners" id="links-container" style="margin-top:14px;"></div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head"><h2>Con quién trabajo</h2><span class="n">marcas y medios</span></div>
+    <div class="partners" id="partners-container"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap cta reveal">
+    <div>
+      <h2>¿Trabajamos juntos?</h2>
+      <p style="opacity:.7; margin-top:6px;">Perfil de creador y trabajador — contacto y redes.</p>
+    </div>
+    <a href="#">Ver contacto</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  function el(html){ var d=document.createElement('div'); d.innerHTML=html.trim(); return d.firstChild; }
+
+  function render(DATA){
+    if(DATA.perfil){
+      var nombreEl = document.querySelector('[data-field="nombre"]');
+      var bioEl = document.querySelector('[data-field="perfil"]');
+      if(nombreEl && DATA.perfil.nombre) nombreEl.textContent = DATA.perfil.nombre;
+      if(bioEl && DATA.perfil.bio) bioEl.textContent = DATA.perfil.bio;
+      if(DATA.perfil.logo){
+        var logoEl = document.querySelector('[data-field="logo"]');
+        logoEl.style.backgroundImage = 'url(' + DATA.perfil.logo + ')';
+        logoEl.style.backgroundSize = 'cover';
+        logoEl.style.backgroundPosition = 'center';
+        logoEl.textContent = '';
+      }
+    }
+    if(DATA.en_vivo){
+      var liveTxt = document.querySelector('.live span span.dot').parentElement;
+      liveTxt.lastChild.textContent = ' ' + DATA.en_vivo.texto + ' — ' + DATA.en_vivo.url;
+      document.querySelector('.live').style.display = DATA.en_vivo.activo ? '' : 'none';
+    }
+    if(DATA.ultimo_video){
+      var v = document.querySelectorAll('.latest-card h3')[0];
+      if(v) v.textContent = DATA.ultimo_video.titulo;
+    }
+    if(DATA.ultima_transmision_jdc){
+      var s = document.querySelectorAll('.latest-card h3')[1];
+      if(s) s.textContent = DATA.ultima_transmision_jdc.titulo;
+    }
+
+    var statsC = document.getElementById('stats-container');
+    (DATA.stats||[]).forEach(function(s){
+      statsC.appendChild(el('<div class="stat reveal"><div class="num">'+s.seguidores+'</div><div class="plat">'+s.plataforma+'</div></div>'));
+    });
+
+    var partnersC = document.getElementById('partners-container');
+    (DATA.empresas||[]).forEach(function(p){
+      partnersC.appendChild(el('<div class="partner reveal">'+p+'</div>'));
+    });
+
+    var linksC = document.getElementById('links-container');
+    (DATA.links||[]).forEach(function(l){
+      linksC.appendChild(el('<a class="partner reveal" href="'+l.url+'" style="text-decoration:none;">'+l.label+'</a>'));
+    });
+
+    startReveal();
+  }
+
+  function startReveal(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        entry.target.classList.toggle('in', entry.isIntersecting);
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(e){ io.observe(e); });
+  }
+
+  // Fuente primaria: data.json, en la raíz del repo. Editable desde el panel
+  // de administración sin tocar este archivo ni el resto del código.
+  fetch('./data.json')
+    .then(function(r){ return r.json(); })
+    .then(render)
+    .catch(function(err){ console.error('No se pudo cargar data.json', err); startReveal(); });
+})();
+</script>
+
+<footer>
+  <div class="wrap">FUTPANAS © 2026 — sitio en desarrollo, contenido de ejemplo</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "perfil": {
+    "nombre": "Juan Manuel Grisolia",
+    "bio": "Este texto es tu perfil de trabajador y creador — editalo desde el panel cuando quieras contar en qué estás trabajando ahora.",
+    "logo": ""
+  },
+  "en_vivo": {
+    "activo": false,
+    "texto": "En vivo ahora",
+    "url": "#"
+  },
+  "ultimo_video": {
+    "titulo": "Título del último video (ejemplo)",
+    "url": "#"
+  },
+  "ultima_transmision_jdc": {
+    "titulo": "Último programa de JDC (ejemplo)",
+    "url": "#"
+  },
+  "portfolio": [],
+  "stats": [
+    { "plataforma": "TikTok", "seguidores": "— k" },
+    { "plataforma": "Instagram", "seguidores": "— k" },
+    { "plataforma": "YouTube", "seguidores": "— k" },
+    { "plataforma": "Kick", "seguidores": "— k" }
+  ],
+  "empresas": [
+    "Empresa / medio 1",
+    "Empresa / medio 2",
+    "Empresa / medio 3"
+  ],
+  "links": [
+    { "label": "Instagram", "url": "#" },
+    { "label": "TikTok", "url": "#" },
+    { "label": "YouTube", "url": "#" },
+    { "label": "Kick", "url": "#" }
+  ]
+}
